@@ -1,0 +1,35 @@
+
+test-transcluder
+****************
+
+
+Transclusions
+=============
+
+Transcluding source1 id1 (should display 'source1_id1')
+
+source1_id1
+
+Transcluding source1 id2 (should display 'source1_id2')
+
+source1_id2
+
+Transcluding source2 id1 (should display 'source2_id1')
+
+source2_id1
+
+
+Errors
+======
+
+Transcluding from unexisiting file (should display an error message)
+
+>>Unable to find source test_source_MISSING<<
+
+Transcluding from unexisting target (should display error message)
+
+>>Unable to find target id_MISSING in source test_source1<<
+
+Wrong directive: (nothing should be displayed)
+
+End transclusions

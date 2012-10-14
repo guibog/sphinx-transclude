@@ -6,10 +6,8 @@
 test-transcluder
 ================
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+Transclusions
+-------------
 
 Transcluding source1 id1 (should display 'source1_id1')
 
@@ -22,5 +20,20 @@ Transcluding source1 id2 (should display 'source1_id2')
 Transcluding source2 id1 (should display 'source2_id1')
 
 .. transclude:: test_source2 id1
+
+Errors
+------
+
+Transcluding from unexisiting file (should display an error message)
+
+.. transclude:: test_source_MISSING id1
+
+Transcluding from unexisting target (should display error message)
+
+.. transclude:: test_source1 id_MISSING
+
+Wrong directive: (nothing should be displayed)
+
+.. transclude:: missing_target
 
 End transclusions

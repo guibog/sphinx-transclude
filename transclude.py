@@ -50,9 +50,11 @@ def process_transclusions(app, doctree, fromdocname):
             doctrees[source] = _load_source_doctree(env, source)
         if isinstance(doctrees[source], WrongSourceDoctree):
             err = "Unable to find source %s" % source
+            doctree.reporter.warning(err, line=node.line)
             node.replace_self(nodes.problematic(err, err))
         elif target in doctrees[source].ids:
             node.replace_self(doctrees[source].ids[target])
         else:
             err = "Unable to find target %s in source %s" % (target, source)
+            doctree.reporter.warning(err, line=node.line)
             node.replace_self(nodes.problematic(err, err))
