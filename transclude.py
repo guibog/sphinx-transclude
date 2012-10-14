@@ -12,8 +12,6 @@ import pickle
 from docutils import nodes
 from sphinx.util.compat import Directive
 
-isa = isinstance
-
 class TranscludeDirective(Directive):
     required_arguments = 2
     def run(self):
@@ -50,7 +48,7 @@ def process_transclusions(app, doctree, fromdocname):
         target = node.attributes['target']
         if source not in doctrees:
             doctrees[source] = _load_source_doctree(env, source)
-        if isa(doctrees[source], WrongSourceDoctree):
+        if isinstance(doctrees[source], WrongSourceDoctree):
             err = "Unable to find source %s" % source
             node.replace_self(nodes.problematic(err, err))
         elif target in doctrees[source].ids:
