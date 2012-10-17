@@ -45,7 +45,7 @@ def process_transclusions(app, doctree, fromdocname):
     doctrees = {}
     for node in doctree.traverse(transclude):
         source = node.attributes['source']
-        target = node.attributes['target']
+        target = node.attributes['target'].lower()
         if source not in doctrees:
             doctrees[source] = _load_source_doctree(env, source)
         if isinstance(doctrees[source], WrongSourceDoctree):
